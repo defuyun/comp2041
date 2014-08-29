@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
 
+
 $n = 0;
 while($arr[$n] = <STDIN>){
 	$n++;
