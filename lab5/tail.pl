@@ -23,7 +23,7 @@ foreach $f (@files) {
 	}
 	seek F,0,0;
 	if(@files > 1){
-		print "==> $f <=="
+		print "==> $f <==\n"
 	}
 	$iter = 0;
 	while($p = <F>){
@@ -32,4 +32,17 @@ foreach $f (@files) {
 		}
 	}
 	close(F);
+}
+
+if (@ARGV == 0){
+	$i = 0;
+	while($p = <STDIN>){
+		$arr[$i] = $p;
+		$i++;
+	}
+	$c = $i-10;
+	while($c < $i){
+		print $arr[$c];
+		$c++;
+	}
 }
