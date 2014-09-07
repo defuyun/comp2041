@@ -1,3 +1,5 @@
+#!/usr/bin/perl -w
+
 foreach (@ARGV) {
 	open F, "<$_" or die $!;
 	chomp($line = <F>);
