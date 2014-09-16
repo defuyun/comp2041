@@ -4,7 +4,7 @@ $#ARGV == 0 or die $!;
 $count = 0;
 
 while($line = <STDIN>){
-	@wc = $line =~ /$ARGV[0]\W/gi;
+	@wc = $line =~ /\W$ARGV[0]\W|^$ARGV[0]\W/gi;
     $count += @wc;	
 }
 

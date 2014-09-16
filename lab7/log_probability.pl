@@ -7,16 +7,14 @@ foreach $file (glob "poets/*.txt"){
    $num_key = `perl count_word.pl $ARGV[0]<$file`;
    chomp($num_key);
    $num_key = (split / /,$num_key)[2];
-   $count += $num_key;
-   print "$num_key\/";
 
-   $num_total = `perl total_word.pl<$file`;
+   $num_total = `perl total_words.pl<$file`;
    chomp($num_total);
-   printf "%6d \= ",$num_total;
-   $percentage = $num_key*1.0/$num_total;
-   printf "%0.9lf ",$percentage;
-
+   
    $file =~ s/poets\///;
    $file =~ s/\.txt//;
-   print "$file\n"
+
+   $log_p = log(($num_key+1)/$num_total); 
+
+   printf "log((%d+1)/%6d) = %8.4f %s\n",$num_key,$num_total,$log_p,$file;
 }
